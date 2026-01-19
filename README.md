@@ -109,6 +109,18 @@ advance to the next step.
 
 ---
 
+## GitHub Actions (Terraform apply)
+
+This repo includes workflows that run Terraform plan/apply from `infra/`.
+To enable them:
+
+- Create an IAM role that trusts GitHub OIDC and grants Terraform permissions.
+- Add `AWS_ROLE_ARN` in GitHub repo secrets.
+- Ensure the Terraform remote state bucket and lock table exist.
+- Make sure the Lambda zip artifacts are produced in CI (the workflow builds placeholders).
+
+---
+
 ## 🛠 Deployment (Local)
 
 ```bash
