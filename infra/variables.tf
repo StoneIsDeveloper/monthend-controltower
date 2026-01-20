@@ -39,3 +39,9 @@ variable "advancer_lambda_package_path" {
   description = "Path to the advancer lambda deployment package (placeholder)"
   default     = "build/advancer.zip"
 }
+
+variable "country" {
+  type        = string
+  description = "Country name"
+  default     = "China"
+}
