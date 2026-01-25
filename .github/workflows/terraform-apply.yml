@@ -27,6 +27,18 @@ jobs:
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.6.6
+
+      - name: Prepare Lambda artifacts (placeholders)
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          python - <<'PY'
+          import zipfile
+          for name in ("api.zip", "advancer.zip"):
+              with zipfile.ZipFile(f"build/{name}", "w") as zf:
+                  zf.writestr("index.js", "exports.handler = async () => ({ statusCode: 200, body: 'ok' });\n")
+          PY
           
       - name: Debug GitHub context
         run: |
