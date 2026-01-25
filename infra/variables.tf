@@ -43,5 +43,5 @@ variable "advancer_lambda_package_path" {
 variable "country" {
   type        = string
   description = "Country name"
-  default     = "China2"
+  default     = "China3"
 }
